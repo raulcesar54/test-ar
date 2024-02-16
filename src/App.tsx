@@ -6,10 +6,11 @@ export const App = () => {
     lat: 0,
     lgn: 0,
   });
-  navigator.geolocation.getCurrentPosition((position) => {
-    setTe({ lat: position.coords.latitude, lgn: position.coords.longitude });
-  });
-  console.log(te);
+  console.log(
+    navigator.geolocation.getCurrentPosition((position) => {
+      setTe({ lat: position.coords.latitude, lgn: position.coords.longitude });
+    })
+  );
   return (
     <a-scene
       vr-mode-ui="enabled: false"
@@ -20,7 +21,7 @@ export const App = () => {
         gltf-model="./scenes/magnemite/scene.gltf"
         rotation="0 180 0"
         scale="0.15 0.15 0.15"
-        gps-entity-place={`longitude: ${te.lgn}; latitude: ${te.lat};`}
+        gps-entity-place={`longitude: -56.0287496; latitude: -15.6049534;`}
         animation-mixer
       />
       <a-camera gps-camera rotation-reader></a-camera>
